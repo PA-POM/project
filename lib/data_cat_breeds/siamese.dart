@@ -11,7 +11,7 @@ class _SiameseState extends State<Siamese> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff402E32),
+      backgroundColor: const Color(0xffF2F2F2),
       appBar: AppBar(
           title: const Text("วิเชียรมาศ / Siamese",
               style: TextStyle(
@@ -20,14 +20,14 @@ class _SiameseState extends State<Siamese> {
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Kanit'),
               textAlign: TextAlign.center),
-          backgroundColor: const Color(0xff906F3F)),
+          backgroundColor: const Color(0xffD9A05B)),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Padding(
               padding: const EdgeInsets.all(15.0),
               child: Center(
                 child: Material(
-                  color: const Color(0xff906F3F),
+                  color: Colors.white,
                   elevation: 8,
                   borderRadius: BorderRadius.circular(10),
                   clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -46,7 +46,7 @@ class _SiameseState extends State<Siamese> {
             child: Text('ลักษณะนิสัย',
                 style: TextStyle(
                     fontSize: 22,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Kanit'),
                 textAlign: TextAlign.left),
@@ -54,8 +54,7 @@ class _SiameseState extends State<Siamese> {
           Center(
             child: Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 217, 219, 217),
-                  borderRadius: BorderRadius.circular(20)),
+                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
               height: 310,
               width: 350,
               child: const Padding(
@@ -76,7 +75,7 @@ class _SiameseState extends State<Siamese> {
             child: Text('ลักษณะเด่นของสายพันธุ์',
                 style: TextStyle(
                     fontSize: 22,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Kanit'),
                 textAlign: TextAlign.left),
@@ -84,8 +83,7 @@ class _SiameseState extends State<Siamese> {
           Center(
             child: Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 217, 219, 217),
-                  borderRadius: BorderRadius.circular(20)),
+                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
               height: 450,
               width: 350,
               child: const Padding(
@@ -106,7 +104,7 @@ class _SiameseState extends State<Siamese> {
             child: Text('การดูแล',
                 style: TextStyle(
                     fontSize: 22,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Kanit'),
                 textAlign: TextAlign.left),
@@ -114,8 +112,7 @@ class _SiameseState extends State<Siamese> {
           Center(
             child: Container(
               decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 217, 219, 217),
-                  borderRadius: BorderRadius.circular(20)),
+                  color: Colors.white, borderRadius: BorderRadius.circular(20)),
               height: 620,
               width: 350,
               child: const Padding(

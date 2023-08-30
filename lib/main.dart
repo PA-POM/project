@@ -1,4 +1,9 @@
 import 'package:classifly_cat/constants.dart';
+import 'package:classifly_cat/data_cat_breeds/bengal.dart';
+import 'package:classifly_cat/data_cat_breeds/british_shorthair.dart';
+import 'package:classifly_cat/data_cat_breeds/persian.dart';
+import 'package:classifly_cat/data_cat_breeds/siamese.dart';
+import 'package:classifly_cat/data_cat_breeds/sphynx.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(Myapp());
@@ -32,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(children: [
         Container(
-          height: size.height * .260,
+          height: size.height * .240,
           decoration: const BoxDecoration(
             color: Color(0xffD9A05B),
             borderRadius: BorderRadius.only(
@@ -47,52 +52,81 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Center(
                   child: Text(
-                    'Cat Breeds \nClassifly\n',
+                    'Cat Breeds \nClassifly',
                     textAlign: TextAlign.right,
-                    style: Theme.of(context)
-                        .textTheme
-                        .displayLarge!
-                        .copyWith(fontWeight: FontWeight.w600, fontSize: 50),
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 50,
+                        color: Colors.white),
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Text(
+                'ข้อมูลสายพันธุ์แมว',
+                textAlign: TextAlign.right,
+                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                    color: Colors.black),
+              ),
+              const SizedBox(
+                height: 15,
               ),
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 2,
-                  childAspectRatio: .80,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                  childAspectRatio: 0.80,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
                   children: [
                     CategoryCard(
                       title: "เปอร์เซีย\n(Persian)",
                       cimage: 'image/Persian.png',
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Persian())),
                     ),
                     CategoryCard(
-                      title: "เปอร์เซีย\n(Persian)",
-                      cimage: 'image/Persian.png',
-                      onPressed: () {},
+                      title: "เบงกอล\n(Bengal)",
+                      cimage: 'image/Bengal.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Bengal())),
                     ),
                     CategoryCard(
-                      title: "เปอร์เซีย\n(Persian)",
-                      cimage: 'image/Persian.png',
-                      onPressed: () {},
+                      title: "สฟิงซ์\n(Sphynx)",
+                      cimage: 'image/Sphynx.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Sphynx())),
                     ),
                     CategoryCard(
-                      title: "เปอร์เซีย\n(Persian)",
-                      cimage: 'image/Persian.png',
-                      onPressed: () {},
+                      title: "บริติช ช็อตแฮร์\n(British shorthair)",
+                      cimage: 'image/British_shorthair.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BritishShorthair())),
                     ),
                     CategoryCard(
-                      title: "เปอร์เซีย\n(Persian)",
-                      cimage: 'image/Persian.png',
-                      onPressed: () {},
+                      title: "วิเชียรมาศ\n(Siamese)",
+                      cimage: 'image/Siamese.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Siamese())),
                     ),
                   ],
                 ),
@@ -127,7 +161,7 @@ class CategoryCard extends StatelessWidget {
       child: Container(
         //padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color.fromARGB(255, 255, 255, 255),
             borderRadius: BorderRadius.circular(13),
             boxShadow: const [
               BoxShadow(
@@ -139,31 +173,29 @@ class CategoryCard extends StatelessWidget {
             ]),
         child: Material(
           color: Colors.transparent,
-          child: Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: InkWell(
-              onTap: onPressed,
-              child: Column(
-                children: [
-                  Image.asset(
-                    cimage,
-                    height: 95,
-                    width: 95,
-                    fit: BoxFit.cover,
+          child: InkWell(
+            onTap: onPressed,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  cimage,
+                  height: 120,
+                  width: 110,
+                  fit: BoxFit.cover,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    title,
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black87),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(1),
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleLarge!
-                          .copyWith(fontSize: 18),
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
           ),
         ),
