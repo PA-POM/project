@@ -1,9 +1,5 @@
 import 'package:classifly_cat/constants.dart';
-import 'package:classifly_cat/data_cat_breeds/bengal.dart';
-import 'package:classifly_cat/data_cat_breeds/british_shorthair.dart';
-import 'package:classifly_cat/data_cat_breeds/persian.dart';
-import 'package:classifly_cat/data_cat_breeds/siamese.dart';
-import 'package:classifly_cat/data_cat_breeds/sphynx.dart';
+
 import 'package:classifly_cat/home.dart';
 import 'package:flutter/material.dart';
 

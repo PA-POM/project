@@ -1,4 +1,3 @@
-import 'package:classifly_cat/constants.dart';
 import 'package:classifly_cat/data_cat_breeds/bengal.dart';
 import 'package:classifly_cat/data_cat_breeds/british_shorthair.dart';
 import 'package:classifly_cat/data_cat_breeds/persian.dart';
