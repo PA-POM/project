@@ -1,102 +1,127 @@
-import 'package:classifly_cat/catbreeds.dart';
-import 'package:classifly_cat/classifly.dart';
+import 'package:classifly_cat/constants.dart';
+import 'package:classifly_cat/data_cat_breeds/bengal.dart';
+import 'package:classifly_cat/data_cat_breeds/british_shorthair.dart';
+import 'package:classifly_cat/data_cat_breeds/persian.dart';
+import 'package:classifly_cat/data_cat_breeds/siamese.dart';
+import 'package:classifly_cat/data_cat_breeds/sphynx.dart';
+import 'package:classifly_cat/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 
-class Myapp extends StatefulWidget {
-  const Myapp({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<Myapp> createState() => _MyappState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MyappState extends State<Myapp> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: const Color(0xff402E32),
-        appBar: AppBar(
-            title: const Center(
-                child: Text(
-              "หน้าหลัก",
-              style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Kanit'),
-            )),
-            backgroundColor: const Color(0xff906F3F)),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(children: [
-              Image.asset(
-                'image/1.png',
-                height: 50,
-                width: 50,
-              ),
-              const Text(
-                "\t\tยินดีต้อนรับเข้าสู่แอปพลิเคชันสำหรับจำแนกสายพันธุ์แมวท่านสามารถจำแนกสายพันธุ์แมวได้จากภาพถ่ายของน้องแมวและยังดูรายละเอียดของสายพันธุ์แมวที่ต้องการได้จากเมนูการใช้งานด้านล่างครับ",
-                style: TextStyle(
-                    fontSize: 18.5,
-                    color: Color.fromARGB(255, 230, 225, 225),
-                    fontWeight: FontWeight.w300,
-                    fontFamily: 'Kanit'),
-                textAlign: TextAlign.center,
-              ),
+      body: Stack(children: [
+        Container(
+          height: size.height * .240,
+          decoration: const BoxDecoration(
+              color: Color(0xffD9A05B),
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25),
+                  bottomRight: Radius.circular(25)),
+              image: DecorationImage(
+                  alignment: Alignment.centerRight,
+                  image: AssetImage("image/cat_foot.png"))),
+        ),
+        SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 154, 156, 154),
-                        borderRadius: BorderRadius.circular(20)),
-                    height: 400,
-                    width: 800,
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.all(15.0),
-                            child: Text(
-                              "เมนูการใช้งาน",
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  color: Color(0xff402E32),
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'Kanit'),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Center(
-                              child: InkWell(
-                                  onTap: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Catbreeds())),
-                                  child: Image.asset(
-                                    'image/catbreeds.png',
-                                    height: 150,
-                                    width: 300,
-                                  ))),
-                          Center(
-                              child: InkWell(
-                                  onTap: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const classifly())),
-                                  child: Image.asset(
-                                    'image/classifly.png',
-                                    height: 150,
-                                    width: 300,
-                                  )))
-                        ],
-                      ),
-                    )),
+                padding: const EdgeInsets.all(10.0),
+                child: Center(
+                  child: Text(
+                    'Cat Breeds Classification',
+                    textAlign: TextAlign.start,
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                        height: 1.35,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 55,
+                        color: Colors.white),
+                  ),
+                ),
               ),
-            ]),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                'ข้อมูลสายพันธุ์แมว',
+                textAlign: TextAlign.right,
+                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                    color: Colors.black),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.80,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: [
+                    CategoryCard(
+                      title: "เปอร์เซีย\n(Persian)",
+                      cimage: 'image/Persian.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Persian())),
+                    ),
+                    CategoryCard(
+                      title: "เบงกอล\n(Bengal)",
+                      cimage: 'image/Bengal.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Bengal())),
+                    ),
+                    CategoryCard(
+                      title: "สฟิงซ์\n(Sphynx)",
+                      cimage: 'image/Sphynx.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Sphynx())),
+                    ),
+                    CategoryCard(
+                      title: "บริติช ช็อตแฮร์\n(British shorthair)",
+                      cimage: 'image/British_shorthair.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BritishShorthair())),
+                    ),
+                    CategoryCard(
+                      title: "วิเชียรมาศ\n(Siamese)",
+                      cimage: 'image/Siamese.png',
+                      onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Siamese())),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 60,
+              )
+            ],
           ),
-        ));
+        ))
+      ]),
+    );
   }
 }
