@@ -18,6 +18,32 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
+        child: BottomNavigationBar(
+            backgroundColor: const Color(0xffD9A05B),
+            iconSize: 40,
+            selectedIconTheme: const IconThemeData(color: Colors.white),
+            unselectedIconTheme: const IconThemeData(color: Colors.white),
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white54,
+            selectedFontSize: 16.0,
+            unselectedFontSize: 14.0,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.camera),
+                label: 'Camera',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.photo),
+                label: 'Gallery',
+              ),
+            ]),
+      ),
       body: Stack(children: [
         Container(
           height: size.height * .240,
@@ -58,8 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 textAlign: TextAlign.right,
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                    color: Colors.black),
+                    fontSize: 18,
+                    color: Colors.blueGrey),
               ),
               const SizedBox(
                 height: 15,
@@ -114,9 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 60,
-              )
             ],
           ),
         ))
