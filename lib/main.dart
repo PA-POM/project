@@ -18,6 +18,6 @@ class Myapp extends StatelessWidget {
             scaffoldBackgroundColor: WbackgroundColor,
             textTheme:
                 Theme.of(context).textTheme.apply(displayColor: kTextColor)),
-        home: const HomeScreen());
+        home: const Home());
   }
 }

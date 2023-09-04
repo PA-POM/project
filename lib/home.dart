@@ -1,10 +1,68 @@
+import 'package:classifly_cat/camera.dart';
 import 'package:classifly_cat/data_cat_breeds/bengal.dart';
 import 'package:classifly_cat/data_cat_breeds/british_shorthair.dart';
 import 'package:classifly_cat/data_cat_breeds/persian.dart';
 import 'package:classifly_cat/data_cat_breeds/siamese.dart';
 import 'package:classifly_cat/data_cat_breeds/sphynx.dart';
+import 'package:classifly_cat/gallery.dart';
 import 'package:classifly_cat/widgets/category_card.dart';
 import 'package:flutter/material.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int currentIndex = 0;
+
+  // Define the screens or pages you want to switch between
+  final List<Widget> pages = [
+    // Your first screen or page
+    HomeScreen(),
+    // Your second screen or page
+    PickImageCamera(),
+    // Your third screen or page
+    PickImageGallery(),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: pages[currentIndex],
+      bottomNavigationBar: ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
+        child: BottomNavigationBar(
+          backgroundColor: const Color(0xffD9A05B),
+          iconSize: 40,
+          selectedIconTheme: const IconThemeData(color: Colors.white),
+          unselectedIconTheme: const IconThemeData(color: Colors.white),
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white54,
+          selectedFontSize: 16.0,
+          unselectedFontSize: 14.0,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.camera),
+              label: 'Camera',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.photo),
+              label: 'Gallery',
+            ),
+          ],
+          currentIndex: currentIndex,
+          onTap: (index) => setState(() => currentIndex = index),
+        ),
+      ),
+    );
+  }
+}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,32 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
-        child: BottomNavigationBar(
-            backgroundColor: const Color(0xffD9A05B),
-            iconSize: 40,
-            selectedIconTheme: const IconThemeData(color: Colors.white),
-            unselectedIconTheme: const IconThemeData(color: Colors.white),
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.white54,
-            selectedFontSize: 16.0,
-            unselectedFontSize: 14.0,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.camera),
-                label: 'Camera',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.photo),
-                label: 'Gallery',
-              ),
-            ]),
-      ),
       body: Stack(children: [
         Container(
           height: size.height * .240,
