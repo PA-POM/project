@@ -103,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         height: 1.35,
                         fontWeight: FontWeight.w600,
-                        fontSize: 55,
+                        fontSize: 50,
                         color: Colors.white),
                   ),
                 ),
