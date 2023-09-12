@@ -15,9 +15,8 @@ class Myapp extends StatelessWidget {
         title: "cat",
         theme: ThemeData(
             fontFamily: 'Kanit',
-            scaffoldBackgroundColor: WbackgroundColor,
-            textTheme:
-                Theme.of(context).textTheme.apply(displayColor: kTextColor)),
+            scaffoldBackgroundColor: gray,
+            textTheme: Theme.of(context).textTheme.apply(displayColor: Black)),
         home: const Home());
   }
 }

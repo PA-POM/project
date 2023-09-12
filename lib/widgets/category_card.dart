@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 class CategoryCard extends StatelessWidget {
   final String cimage;
   final String title;
+  final String title2;
   final VoidCallback onPressed;
 
   const CategoryCard({
     super.key,
     required this.cimage,
     required this.title,
+    required this.title2,
     required this.onPressed,
   });
 
@@ -18,6 +20,7 @@ class CategoryCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(13),
       child: Container(
+        height: 150, width: 400,
         //padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
             color: const Color.fromARGB(255, 255, 255, 255),
@@ -27,7 +30,7 @@ class CategoryCard extends StatelessWidget {
                 offset: Offset(0, 17),
                 blurRadius: 17,
                 spreadRadius: -23,
-                color: kBackgroundColor,
+                color: Black,
               )
             ]),
         child: Material(
@@ -45,15 +48,27 @@ class CategoryCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(5),
-                  child: Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87),
+                  child: Column(
+                    children: [
+                      Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87),
+                      ),
+                      Text(
+                        title2,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black87),
+                      )
+                    ],
                   ),
-                )
+                ),
               ],
             ),
           ),
