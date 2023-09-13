@@ -50,11 +50,7 @@ class _HomeState extends State<Home> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.camera),
-              label: 'Camera',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.photo),
-              label: 'Gallery',
+              label: 'Classification',
             ),
           ],
           currentIndex: currentIndex,
@@ -62,6 +58,20 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+}
+
+class Display extends StatefulWidget {
+  const Display({super.key});
+
+  @override
+  State<Display> createState() => _DisplayState();
+}
+
+class _DisplayState extends State<Display> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
 
