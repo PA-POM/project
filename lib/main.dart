@@ -1,6 +1,6 @@
 import 'package:classifly_cat/constants.dart';
 
-import 'package:classifly_cat/home.dart';
+import 'package:classifly_cat/tabbar.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const Myapp());
@@ -17,6 +17,6 @@ class Myapp extends StatelessWidget {
             fontFamily: 'Kanit',
             scaffoldBackgroundColor: gray,
             textTheme: Theme.of(context).textTheme.apply(displayColor: Black)),
-        home: const Home());
+        home: const Tabbar());
   }
 }

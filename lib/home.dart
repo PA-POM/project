@@ -1,79 +1,11 @@
-import 'package:classifly_cat/camera.dart';
 import 'package:classifly_cat/constants.dart';
 import 'package:classifly_cat/data_cat_breeds/bengal.dart';
 import 'package:classifly_cat/data_cat_breeds/british_shorthair.dart';
 import 'package:classifly_cat/data_cat_breeds/persian.dart';
 import 'package:classifly_cat/data_cat_breeds/siamese.dart';
 import 'package:classifly_cat/data_cat_breeds/sphynx.dart';
-import 'package:classifly_cat/gallery.dart';
 import 'package:classifly_cat/widgets/category_card.dart';
 import 'package:flutter/material.dart';
-
-class Home extends StatefulWidget {
-  const Home({super.key});
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int currentIndex = 0;
-
-  // Define the screens or pages you want to switch between
-  final List<Widget> pages = [
-    // Your first screen or page
-    HomeScreen(),
-    // Your second screen or page
-    PickImageCamera(),
-    // Your third screen or page
-    PickImageGallery(),
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: pages[currentIndex],
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(40)),
-        child: BottomNavigationBar(
-          backgroundColor: Yellowbrown,
-          iconSize: 40,
-          selectedIconTheme: const IconThemeData(color: White),
-          unselectedIconTheme: const IconThemeData(color: White),
-          selectedItemColor: White,
-          unselectedItemColor: Colors.white54,
-          selectedFontSize: 16.0,
-          unselectedFontSize: 14.0,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.camera),
-              label: 'Classification',
-            ),
-          ],
-          currentIndex: currentIndex,
-          onTap: (index) => setState(() => currentIndex = index),
-        ),
-      ),
-    );
-  }
-}
-
-class Display extends StatefulWidget {
-  const Display({super.key});
-
-  @override
-  State<Display> createState() => _DisplayState();
-}
-
-class _DisplayState extends State<Display> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
