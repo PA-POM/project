@@ -22,6 +22,13 @@ class PickImageCamera extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                       fontSize: 35,
                       color: Black)),
+              Text('การจำแนกสายพันธุ์แมว',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                      height: 1.20,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 30,
+                      color: Black)),
               const SizedBox(
                 height: 20,
               ),
