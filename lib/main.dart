@@ -1,9 +1,14 @@
 import 'package:classifly_cat/constants.dart';
 
-import 'package:classifly_cat/tabbar.dart';
+import 'package:classifly_cat/widgets/tabbar.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const Myapp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const Myapp());
+}
 
 class Myapp extends StatelessWidget {
   const Myapp({super.key});

@@ -23,7 +23,7 @@ class CategoryCard extends StatelessWidget {
         height: 150, width: 400,
         //padding: const EdgeInsets.all(30),
         decoration: BoxDecoration(
-            color: Yellowbrown,
+            color: White,
             borderRadius: BorderRadius.circular(13),
             boxShadow: const [
               BoxShadow(
@@ -40,7 +40,7 @@ class CategoryCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
+                Image.network(
                   cimage,
                   height: 120,
                   width: 110,
@@ -56,7 +56,7 @@ class CategoryCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: White),
+                            color: Black),
                       ),
                       Text(
                         title2,
@@ -64,7 +64,7 @@ class CategoryCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: White),
+                            color: Black),
                       )
                     ],
                   ),
