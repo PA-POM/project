@@ -12,13 +12,15 @@ class ResultPage extends StatefulWidget {
   final String confidence;
   final int index;
   final String image;
+  final String selectedModel;
 
   const ResultPage(
       {Key? key,
       required this.label,
       required this.confidence,
       required this.index,
-      required this.image})
+      required this.image,
+      required this.selectedModel})
       : super(key: key);
 
   @override
@@ -98,43 +100,45 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       backgroundColor: gray,
       appBar: AppBar(
-          title: const Text('ผลลัพธ์การจำแนกสายพันธุ์แมว',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Kanit'),
-              textAlign: TextAlign.center),
-          backgroundColor: const Color(0xffD9A05B)),
+        title: const Text('ผลลัพธ์การจำแนกสายพันธุ์แมว',
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Kanit'),
+            textAlign: TextAlign.center),
+        backgroundColor: const Color(0xffD9A05B),
+      ),
       body: SizedBox(
         width: double.infinity,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            const SizedBox(height: 30),
+            const SizedBox(height: 25),
+            Text(
+              widget.selectedModel,
+              style: const TextStyle(
+                  fontSize: 23,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Kanit'),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 15),
             Material(
               elevation: 8,
               borderRadius: BorderRadius.circular(10),
               clipBehavior: Clip.antiAliasWithSaveLayer,
               child: InkWell(
-                  child: Image.file(
-                    File(widget.image),
-                    fit: BoxFit.cover,
-                    height: 310,
-                    width: 310,
-                  ),
-                  onTap: () {
-                    if (widget.index == -1) {
-                    } else {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => ShowCatData(
-                                  catdataModel: catdataModels[widget.index])));
-                    }
-                  }),
+                child: Image.file(
+                  File(widget.image),
+                  fit: BoxFit.cover,
+                  height: 270,
+                  width: 270,
+                ),
+              ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 25),
             Text(
               'ผลลัพธ์\n${widget.label}',
               style: const TextStyle(
@@ -144,7 +148,7 @@ class _ResultPageState extends State<ResultPage> {
                   fontFamily: 'Kanit'),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
             Text(
               'ค่าความแม่นยำ\n${widget.confidence}',
               style: const TextStyle(
@@ -154,7 +158,7 @@ class _ResultPageState extends State<ResultPage> {
                   fontFamily: 'Kanit'),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 15),
             Material(
               child: InkWell(
                 onTap: () {
