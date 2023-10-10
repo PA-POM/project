@@ -53,18 +53,20 @@ class CategoryCard extends StatelessWidget {
                       Text(
                         title,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        style: const TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Black),
+                            color: Black,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Kanit'),
                       ),
                       Text(
                         title2,
                         textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        style: const TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Black),
+                            color: Black,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Kanit'),
                       )
                     ],
                   ),

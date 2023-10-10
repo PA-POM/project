@@ -74,16 +74,23 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Stack(children: [
         SafeArea(
-          child: Container(
-            height: size.height * .230,
-            decoration: const BoxDecoration(
-                color: Yellowbrown,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(25),
-                    bottomRight: Radius.circular(25)),
-                image: DecorationImage(
-                    alignment: Alignment.centerRight,
-                    image: AssetImage('assets/images/catlogo.png'))),
+          child: Column(
+            children: [
+              SafeArea(
+                child: Container(
+                  height: size.height * .230,
+                  decoration: const BoxDecoration(
+                      color: Yellowbrown,
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(25),
+                          bottomRight: Radius.circular(25)),
+                      image: DecorationImage(
+                          alignment: Alignment.bottomRight,
+                          image: AssetImage('assets/images/catlogo.png'),
+                          fit: BoxFit.contain)),
+                ),
+              ),
+            ],
           ),
         ),
         SafeArea(
@@ -93,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
@@ -110,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                         height: 1.25,
-                        fontSize: 47,
+                        fontSize: 44,
                         color: White,
                         fontWeight: FontWeight.w800,
                         fontFamily: 'Kanit'),

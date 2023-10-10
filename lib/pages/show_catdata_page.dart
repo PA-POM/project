@@ -73,41 +73,8 @@ class _ShowCatDataState extends State<ShowCatData> {
               constraints: const BoxConstraints(maxWidth: 400.0),
               child: Column(
                 children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Text(catModel.tname,
-                      style: const TextStyle(
-                          shadows: <Shadow>[
-                            Shadow(
-                              offset: Offset(2.0, 2.0), // ขนาดและทิศทางของเงา
-                              blurRadius: 20.0, // รัศมีของเงา
-                              color: Color.fromARGB(
-                                  255, 176, 170, 163), // สีของเงา
-                            ),
-                          ],
-                          fontSize: 28,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Kanit'),
-                      textAlign: TextAlign.center),
-                  Text(catModel.ename,
-                      style: const TextStyle(
-                          shadows: <Shadow>[
-                            Shadow(
-                              offset: Offset(2.0, 2.0), // ขนาดและทิศทางของเงา
-                              blurRadius: 20.0, // รัศมีของเงา
-                              color: Color.fromARGB(
-                                  255, 176, 170, 163), // สีของเงา
-                            ),
-                          ],
-                          fontSize: 28,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Kanit'),
-                      textAlign: TextAlign.center),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Center(
                       child: InkWell(
                         child: Image.network(
@@ -118,6 +85,20 @@ class _ShowCatDataState extends State<ShowCatData> {
                       ),
                     ),
                   ),
+                  Text(catModel.ename,
+                      style: const TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w800,
+                          fontFamily: 'Kanit'),
+                      textAlign: TextAlign.center),
+                  Text('ชื่อภาษาไทย : ${catModel.tname}',
+                      style: const TextStyle(
+                          fontSize: 26,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Kanit'),
+                      textAlign: TextAlign.center),
                 ],
               ),
             ),
@@ -144,7 +125,7 @@ class _ShowCatDataState extends State<ShowCatData> {
                         constraints: const BoxConstraints(maxWidth: 350.0),
                         child: Text(item.headerValue,
                             style: const TextStyle(
-                                fontSize: 26,
+                                fontSize: 24,
                                 color: Colors.black,
                                 fontWeight: FontWeight.w500,
                                 fontFamily: 'Kanit'),
@@ -166,7 +147,7 @@ class _ShowCatDataState extends State<ShowCatData> {
                                 textScaleFactor: 1,
                                 textWidthBasis: TextWidthBasis.parent,
                                 style: const TextStyle(
-                                    fontSize: 21,
+                                    fontSize: 19,
                                     color: Color.fromARGB(255, 31, 31, 31),
                                     fontWeight: FontWeight.w300,
                                     fontFamily: 'Kanit'),
