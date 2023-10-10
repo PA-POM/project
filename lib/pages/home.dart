@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               SafeArea(
                 child: Container(
-                  height: size.height * .230,
+                  height: size.height * .205,
                   decoration: const BoxDecoration(
                       color: Yellowbrown,
                       borderRadius: BorderRadius.only(
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 20,
+                height: 15,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                         height: 1.25,
-                        fontSize: 44,
+                        fontSize: 41,
                         color: White,
                         fontWeight: FontWeight.w800,
                         fontFamily: 'Kanit'),
