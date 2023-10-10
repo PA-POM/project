@@ -102,6 +102,13 @@ class _ResultPageState extends State<ResultPage> {
       appBar: AppBar(
         title: const Text('ผลลัพธ์การจำแนกสายพันธุ์แมว',
             style: TextStyle(
+                shadows: <Shadow>[
+                  Shadow(
+                    offset: Offset(2.0, 2.0), // ขนาดและทิศทางของเงา
+                    blurRadius: 10.0, // รัศมีของเงา
+                    color: Black, // สีของเงา
+                  ),
+                ],
                 fontSize: 20,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -118,13 +125,13 @@ class _ResultPageState extends State<ResultPage> {
             Text(
               widget.selectedModel,
               style: const TextStyle(
-                  fontSize: 23,
+                  fontSize: 30,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Kanit'),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 25),
             Material(
               elevation: 8,
               borderRadius: BorderRadius.circular(10),
@@ -138,19 +145,18 @@ class _ResultPageState extends State<ResultPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 25),
-            Text(
-              'ผลลัพธ์\n${widget.label}',
-              style: const TextStyle(
-                  fontSize: 23,
+            const SizedBox(height: 20),
+            const Text(
+              'ผลลัพธ์',
+              style: TextStyle(
+                  fontSize: 24,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Kanit'),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 15),
             Text(
-              'ค่าความแม่นยำ\n${widget.confidence}',
+              widget.label,
               style: const TextStyle(
                   fontSize: 20,
                   color: Colors.black,
@@ -159,37 +165,61 @@ class _ResultPageState extends State<ResultPage> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 15),
-            Material(
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Tabbar()),
-                  );
-                },
-                child: Container(
-                  constraints: const BoxConstraints(maxWidth: 200.0),
-                  decoration: BoxDecoration(
-                    color: const Color(0xffD9A05B), // สีพื้นหลังของปุ่ม
-                    borderRadius:
-                        BorderRadius.circular(10), // ความโค้งของขอบปุ่ม
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: const Center(
-                    child: Text(
-                      'หน้าหลัก',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.white, // สีข้อความบนปุ่ม
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Kanit',
+            const Text(
+              'ค่าความแม่นยำ',
+              style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Kanit'),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              widget.confidence,
+              style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Kanit'),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 20),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Material(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Tabbar()),
+                      );
+                    },
+                    child: Container(
+                      constraints: const BoxConstraints(maxWidth: 150.0),
+                      decoration: BoxDecoration(
+                        color: const Color(0xffD9A05B), // สีพื้นหลังของปุ่ม
+                        borderRadius:
+                            BorderRadius.circular(10), // ความโค้งของขอบปุ่ม
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
+                      child: const Center(
+                        child: Text(
+                          'หน้าหลัก',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white, // สีข้อความบนปุ่ม
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Kanit',
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                const SizedBox(height: 10),
+              ],
             ),
-            const SizedBox(height: 10),
             Visibility(
               visible: showButton, // ใช้เงื่อนไขเพื่อกำหนดการแสดงปุ่ม
               child: Material(
@@ -202,7 +232,7 @@ class _ResultPageState extends State<ResultPage> {
                                 catdataModel: catdataModels[widget.index])));
                   },
                   child: Container(
-                    constraints: const BoxConstraints(maxWidth: 200.0),
+                    constraints: const BoxConstraints(maxWidth: 150.0),
                     decoration: BoxDecoration(
                       color: const Color(0xffD9A05B), // สีพื้นหลังของปุ่ม
                       borderRadius:
@@ -213,7 +243,7 @@ class _ResultPageState extends State<ResultPage> {
                       child: Text(
                         'ดูข้อมูลเพิ่มเติม',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 20,
                           color: Colors.white, // สีข้อความบนปุ่ม
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Kanit',

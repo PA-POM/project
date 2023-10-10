@@ -75,69 +75,86 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(children: [
         SafeArea(
           child: Container(
-            height: size.height * .195,
+            height: size.height * .230,
             decoration: const BoxDecoration(
                 color: Yellowbrown,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25),
                     bottomRight: Radius.circular(25)),
                 image: DecorationImage(
-                    alignment: Alignment.topRight,
-                    image: AssetImage('assets/images/cat_foot.png'))),
+                    alignment: Alignment.centerRight,
+                    image: AssetImage('assets/images/catlogo.png'))),
           ),
         ),
         SafeArea(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Center(
-                child: Text(
-                  'Cat Breeds Classification',
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      height: 1.35,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 50,
-                      color: White),
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Center(
+                  child: Text(
+                    'Cat Breeds Classification',
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                        shadows: <Shadow>[
+                          Shadow(
+                            offset: Offset(2.0, 2.0), // ขนาดและทิศทางของเงา
+                            blurRadius: 10.0, // รัศมีของเงา
+                            color: Colors.black, // สีของเงา
+                          ),
+                        ],
+                        height: 1.25,
+                        fontSize: 47,
+                        color: White,
+                        fontWeight: FontWeight.w800,
+                        fontFamily: 'Kanit'),
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: SizedBox(
-                  height: 30,
-                  child: Text(
-                    'ข้อมูลสายพันธุ์แมว',
-                    textAlign: TextAlign.right,
-                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                        color: Colors.blueGrey),
-                  )),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: widgets.isEmpty
-                    ? const Center(child: CircularProgressIndicator())
-                    : GridView.count(
-                        crossAxisCount: 2,
-                        childAspectRatio: 0.9,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        children: widgets,
-                      ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  'ข้อมูลสายพันธุ์แมว',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(2.0, 2.0), // ขนาดและทิศทางของเงา
+                          blurRadius: 10.0, // รัศมีของเงา
+                          color: Color.fromARGB(255, 0, 0, 0), // สีของเงา
+                        ),
+                      ],
+                      fontSize: 20,
+                      color: White,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Kanit'),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 10,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: widgets.isEmpty
+                      ? const Center(child: CircularProgressIndicator())
+                      : GridView.count(
+                          crossAxisCount: 2,
+                          childAspectRatio: 0.8,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          children: widgets,
+                        ),
+                ),
+              ),
+            ],
+          ),
         ))
       ]),
     );

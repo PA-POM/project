@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const kBackgroundColor = Color(0xffF2D0A7);
+const whiteyellowbrown = Color(0xffF2D0A7);
 // ignore: constant_identifier_names
 const Black = Color(0xff000000);
 // ignore: constant_identifier_names

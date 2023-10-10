@@ -31,7 +31,7 @@ class _PickImageCameraState extends State<PickImageCamera> {
   @override
   void initState() {
     super.initState();
-    modelPath = 'assets/models/mobilenet_1_00_224v2.tflite';
+    modelPath = 'assets/models/mobilenet_1_00_224.tflite';
     _tfliteModel = TFLiteModel(
       modelPath: modelPath,
       labelsPath: labelsPath,
@@ -103,28 +103,38 @@ class _PickImageCameraState extends State<PickImageCamera> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Cat Breeds Classification ',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        height: 1.20,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 31,
-                        color: Colors.black,
-                      ),
+                  style: TextStyle(
+                      fontSize: 31,
+                      color: Black,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Kanit'),
                 ),
-                Text(
+                const Text(
                   'การจำแนกสายพันธุ์แมว',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        height: 1.20,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 30,
-                        color: Colors.black,
-                      ),
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Black,
+                      fontWeight: FontWeight.w600,
+                      fontFamily: 'Kanit'),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 10,
+                ),
+                const Text(
+                  'select Model',
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Black,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Kanit'),
+                ),
+                const SizedBox(
+                  height: 1.5,
                 ),
                 // Dropdown สำหรับเลือกโมเดล
                 DropdownButton<String>(
@@ -137,7 +147,7 @@ class _PickImageCameraState extends State<PickImageCamera> {
                       _selectedModel = newValue!;
                       // อัปเดต modelPath ตามที่เลือกใน Dropdown
                       if (_selectedModel == 'MobileNet') {
-                        modelPath = 'assets/models/mobilenet_1_00_224v2.tflite';
+                        modelPath = 'assets/models/mobilenet_1_00_224.tflite';
                         _modelname = 'MobileNet';
                       } else if (_selectedModel == 'InceptionV3') {
                         modelPath = 'assets/models/inceptionv3.tflite';
@@ -151,18 +161,27 @@ class _PickImageCameraState extends State<PickImageCamera> {
                   items: _modelOptions.map((String model) {
                     return DropdownMenuItem<String>(
                       value: model,
-                      child: Text(model),
+                      child: Text(
+                        model,
+                        style: const TextStyle(
+                            fontSize: 16,
+                            color: Black,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: 'Kanit'),
+                      ),
                     );
                   }).toList(),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Material(
                   child: Column(
                     children: [
                       Image.asset(
-                        'assets/images/cat_foot.png',
+                        'assets/images/questioncat.png',
                         width: 250,
                         height: 250,
-                        fit: BoxFit.cover,
                       ),
                       const SizedBox(
                         height: 40,
@@ -170,43 +189,57 @@ class _PickImageCameraState extends State<PickImageCamera> {
                     ],
                   ),
                 ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Yellowbrown),
-                    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
-                  ),
-                  onPressed: () {
-                    _pickImage(ImageSource.camera);
-                  },
-                  child: Text(
-                    'ถ่ายรูป',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Yellowbrown),
+                            minimumSize:
+                                MaterialStateProperty.all(const Size(150, 50)),
+                          ),
+                          onPressed: () {
+                            _pickImage(ImageSource.camera);
+                          },
+                          child: const Text(
+                            'ถ่ายรูป',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: White,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Kanit'),
+                          ),
                         ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Yellowbrown),
-                    minimumSize: MaterialStateProperty.all(const Size(200, 50)),
-                  ),
-                  onPressed: () {
-                    _pickImage(ImageSource.gallery);
-                  },
-                  child: Text(
-                    'แกลเลอรี',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor:
+                                MaterialStateProperty.all(Yellowbrown),
+                            minimumSize:
+                                MaterialStateProperty.all(const Size(150, 50)),
+                          ),
+                          onPressed: () {
+                            _pickImage(ImageSource.gallery);
+                          },
+                          child: const Text(
+                            'แกลเลอรี',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: White,
+                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Kanit'),
+                          ),
                         ),
+                      ),
+                    ],
                   ),
                 ),
               ],
