@@ -283,12 +283,24 @@ void _showPopup(BuildContext context) {
       return AlertDialog(
         content: SizedBox(
           width: MediaQuery.of(context).size.width * 0.7,
-          height: MediaQuery.of(context).size.height * 0.51,
+          height: MediaQuery.of(context).size.height * 0.57,
           child: ListView(
             children: <Widget>[
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'การเลือกรูปภาพเพื่อใช้งาน',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Black,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'Kanit',
+                    ),
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -307,7 +319,7 @@ void _showPopup(BuildContext context) {
                         style: TextStyle(
                           fontSize: 18,
                           color: Black,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                           fontFamily: 'Kanit',
                         ),
                       ),
@@ -339,7 +351,7 @@ void _showPopup(BuildContext context) {
                         style: TextStyle(
                           fontSize: 18,
                           color: Black,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w400,
                           fontFamily: 'Kanit',
                         ),
                       ),
