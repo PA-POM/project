@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../constants.dart';
-import 'classification.dart';
+import '../classification/classification.dart';
 
 String modelPath = '';
 String labelsPath = 'assets/models/labels.txt';
@@ -125,7 +125,7 @@ class _PickImageCameraState extends State<PickImageCamera> {
                   height: 10,
                 ),
                 const Text(
-                  'select Model',
+                  'เลือกโมเดล',
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       fontSize: 18,
@@ -184,10 +184,35 @@ class _PickImageCameraState extends State<PickImageCamera> {
                         height: 250,
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 20,
                       ),
                     ],
                   ),
+                ),
+                InkWell(
+                  onTap: () {
+                    _showPopup(context);
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'เลือกรูปภาพ',
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Black,
+                            fontWeight: FontWeight.w600,
+                            fontFamily: 'Kanit'),
+                      ),
+                      Icon(
+                        Icons.info_rounded,
+                        color: Black,
+                      ),
+                    ],
+                  ), // ใช้ไอคอนตามที่คุณต้องการ
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 Center(
                   child: Row(
@@ -249,4 +274,83 @@ class _PickImageCameraState extends State<PickImageCamera> {
       ),
     );
   }
+}
+
+void _showPopup(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        content: SizedBox(
+          width:
+              MediaQuery.of(context).size.width * 0.7, // กำหนดขนาดกว้างของสไลด์
+          height:
+              MediaQuery.of(context).size.height * 0.51, // กำหนดขนาดสูงของสไลด์
+          child: ListView(
+            children: <Widget>[
+              // เพิ่มสไลด์ 3 รายการ
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'รูปแบบรูปภาพที่ควรนำมาใช้',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Black,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Kanit'),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Image.asset(
+                    'assets/images/cat.png',
+                    fit: BoxFit.cover,
+                    height: 150, // กำหนดความสูงของรูปภาพ
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Text(
+                    'รูปแบบรูปภาพที่ไม่ควรนำมาใช้',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Black,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Kanit'),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Image.asset(
+                    'assets/images/cat.png',
+                    fit: BoxFit.cover,
+                    height: 150, // กำหนดความสูงของรูปภาพ
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // ปิดป็อบอัพ
+            },
+            child: const Text(
+              'ปิดหน้าต่าง',
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Yellowbrown,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: 'Kanit'),
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }

@@ -1,4 +1,4 @@
-import 'package:classifly_cat/classification/image.dart';
+import 'package:classifly_cat/pages/image.dart';
 import 'package:classifly_cat/constants.dart';
 import 'package:classifly_cat/pages/home.dart';
 
