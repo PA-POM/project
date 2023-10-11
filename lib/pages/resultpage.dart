@@ -96,7 +96,6 @@ class _ResultPageState extends State<ResultPage> {
 
   @override
   Widget build(BuildContext context) {
-    // ทำอะไรกับ label, confidence, และ index ที่ได้รับในหน้านี้
     return Scaffold(
       backgroundColor: gray,
       appBar: AppBar(
