@@ -22,17 +22,17 @@ class _ShowCatDataState extends State<ShowCatData> {
     _data = [
       Item(
         headerValue: 'ลักษณะนิสัย',
-        expandedValue: catModel.cha,
+        expandedValue: '\t${catModel.cha}',
         isExpanded: false,
       ),
       Item(
         headerValue: 'ลักษณะเด่นของสายพันธุ์',
-        expandedValue: catModel.feature,
+        expandedValue: '\t${catModel.feature}',
         isExpanded: false,
       ),
       Item(
         headerValue: 'การดูแล',
-        expandedValue: catModel.care,
+        expandedValue: '\t${catModel.care}',
         isExpanded: false,
       ),
     ];

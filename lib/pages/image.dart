@@ -189,27 +189,28 @@ class _PickImageCameraState extends State<PickImageCamera> {
                     ],
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    _showPopup(context);
-                  },
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'เลือกรูปภาพ',
-                        style: TextStyle(
-                            fontSize: 20,
-                            color: Black,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Kanit'),
-                      ),
-                      Icon(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'เลือกรูปภาพ',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Black,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Kanit'),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        _showPopup(context);
+                      },
+                      child: const Icon(
                         Icons.info_rounded,
                         color: Black,
                       ),
-                    ],
-                  ), // ใช้ไอคอนตามที่คุณต้องการ
+                      // ใช้ไอคอนตามที่คุณต้องการ
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 10,
@@ -283,7 +284,7 @@ void _showPopup(BuildContext context) {
       return AlertDialog(
         content: SizedBox(
           width: MediaQuery.of(context).size.width * 0.7,
-          height: MediaQuery.of(context).size.height * 0.57,
+          height: MediaQuery.of(context).size.height * 0.68,
           child: ListView(
             children: <Widget>[
               Column(
@@ -329,9 +330,9 @@ void _showPopup(BuildContext context) {
                     height: 10,
                   ),
                   Image.asset(
-                    'assets/images/cat.png',
+                    'assets/images/check.jpg',
                     fit: BoxFit.cover,
-                    height: 150,
+                    height: 220,
                   ),
                   const SizedBox(
                     height: 10,
@@ -361,16 +362,16 @@ void _showPopup(BuildContext context) {
                     height: 10,
                   ),
                   Image.asset(
-                    'assets/images/cat.png',
+                    'assets/images/clear.png',
                     fit: BoxFit.cover,
-                    height: 150,
+                    height: 220,
                   ),
                 ],
               ),
             ],
           ),
         ),
-        actions: <Widget>[
+        actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
