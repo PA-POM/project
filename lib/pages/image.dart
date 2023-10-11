@@ -282,26 +282,36 @@ void _showPopup(BuildContext context) {
     builder: (BuildContext context) {
       return AlertDialog(
         content: SizedBox(
-          width:
-              MediaQuery.of(context).size.width * 0.7, // กำหนดขนาดกว้างของสไลด์
-          height:
-              MediaQuery.of(context).size.height * 0.51, // กำหนดขนาดสูงของสไลด์
+          width: MediaQuery.of(context).size.width * 0.7,
+          height: MediaQuery.of(context).size.height * 0.51,
           child: ListView(
             children: <Widget>[
-              // เพิ่มสไลด์ 3 รายการ
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'รูปแบบรูปภาพที่ควรนำมาใช้',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Black,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Kanit'),
+                  const Row(
+                    children: [
+                      Icon(
+                        Icons.check, // ใช้ไอคอนถูก
+                        color: Colors.green, // สีของไอคอนถูก
+                        size: 30, // ขนาดของไอคอน
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'รูปแบบรูปภาพที่ควรนำมาใช้',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Black,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Kanit',
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
@@ -309,18 +319,31 @@ void _showPopup(BuildContext context) {
                   Image.asset(
                     'assets/images/cat.png',
                     fit: BoxFit.cover,
-                    height: 150, // กำหนดความสูงของรูปภาพ
+                    height: 150,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'รูปแบบรูปภาพที่ไม่ควรนำมาใช้',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Black,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'Kanit'),
+                  const Row(
+                    children: [
+                      Icon(
+                        Icons.clear, // ใช้ไอคอนผิด
+                        color: Colors.red, // สีของไอคอนผิด
+                        size: 30, // ขนาดของไอคอน
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        'รูปแบบรูปภาพที่ไม่ควรนำมาใช้',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Black,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Kanit',
+                        ),
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
@@ -328,7 +351,7 @@ void _showPopup(BuildContext context) {
                   Image.asset(
                     'assets/images/cat.png',
                     fit: BoxFit.cover,
-                    height: 150, // กำหนดความสูงของรูปภาพ
+                    height: 150,
                   ),
                 ],
               ),
@@ -338,15 +361,16 @@ void _showPopup(BuildContext context) {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(); // ปิดป็อบอัพ
+              Navigator.of(context).pop();
             },
             child: const Text(
               'ปิดหน้าต่าง',
               style: TextStyle(
-                  fontSize: 18,
-                  color: Yellowbrown,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'Kanit'),
+                fontSize: 18,
+                color: Yellowbrown,
+                fontWeight: FontWeight.w400,
+                fontFamily: 'Kanit',
+              ),
             ),
           ),
         ],
